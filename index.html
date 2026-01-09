@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Democracy Impact Report | Vivent Health</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: #083A51;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        
+        .logo .red { color: #EB3C2C; }
+        .logo .white { color: #fff; }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        
+        .header .org-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #52B8D8;
+            margin-bottom: 8px;
+        }
+        
+        .header .tagline {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
+        }
+        
+        /* Intro */
+        .intro {
+            background: #fff;
+            border-left: 4px solid #52B8D8;
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .intro .highlight {
+            color: #EB3C2C;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            font-size: 20px;
+            font-weight: 700;
+            color: #083A51;
+            padding-bottom: 10px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section-header.cyan { border-bottom: 3px solid #52B8D8; }
+        .section-header.green { border-bottom: 3px solid #28a745; }
+        .section-header.red { border-bottom: 3px solid #EB3C2C; }
+        
+        /* Metric Cards */
+        .metrics {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .metric-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .metric-card.primary {
+            background: linear-gradient(135deg, #083A51 0%, #0a5a7c 100%);
+            border: none;
+        }
+        
+        .metric-card.primary-red {
+            background: linear-gradient(135deg, #EB3C2C 0%, #c9321f 100%);
+            border: none;
+        }
+        
+        .metric-card .label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .metric-card.primary .label,
+        .metric-card.primary-red .label {
+            color: #52B8D8;
+        }
+        
+        .metric-card .value {
+            font-size: 42px;
+            font-weight: 800;
+            color: #083A51;
+            line-height: 1;
+        }
+        
+        .metric-card.primary .value,
+        .metric-card.primary-red .value {
+            color: #fff;
+            font-size: 52px;
+        }
+        
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .card-header {
+            padding: 14px 18px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #083A51;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .card-header.gold {
+            background: #fff8e6;
+        }
+        
+        .card-body {
+            padding: 8px 0;
+        }
+        
+        .list-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 18px;
+            font-size: 14px;
+        }
+        
+        .list-row:hover {
+            background: #f8f9fa;
+        }
+        
+        .list-row .name {
+            color: #333;
+        }
+        
+        .list-row .value {
+            font-weight: 600;
+            color: #083A51;
+        }
+        
+        .medal {
+            margin-right: 8px;
+        }
+        
+        /* Comparison Section */
+        .comparison-intro {
+            background: #f0fff4;
+            border-left: 4px solid #28a745;
+            border-radius: 0 12px 12px 0;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        
+        .comparison-intro .highlight {
+            color: #28a745;
+            font-weight: 700;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .comparison-table th {
+            background: #f8f9fa;
+            padding: 14px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            text-align: left;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        .comparison-table th:nth-child(2) {
+            color: #083A51;
+            text-align: center;
+        }
+        
+        .comparison-table th:nth-child(3),
+        .comparison-table th:nth-child(4) {
+            text-align: center;
+        }
+        
+        .comparison-table td {
+            padding: 14px 16px;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table td:nth-child(2) {
+            font-weight: 600;
+            color: #083A51;
+            text-align: center;
+        }
+        
+        .comparison-table td:nth-child(3) {
+            color: #666;
+            text-align: center;
+        }
+        
+        .comparison-table td:nth-child(4) {
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .positive { color: #28a745; }
+        .negative { color: #EB3C2C; }
+        
+        /* Footer */
+        .footer {
+            background: #083A51;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 32px;
+        }
+        
+        .footer p {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .footer .logo {
+            margin-bottom: 12px;
+        }
+        
+        .footer .tagline {
+            color: #52B8D8;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        /* Responsive */
+        @media (max-width: 700px) {
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            
+            .metric-card.primary .value,
+            .metric-card.primary-red .value {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="red">Vot</span><span class="white">-ER</span>
+            </div>
+            <h1>Your Democracy Impact Report</h1>
+            <div class="org-name">Vivent Health</div>
+            <div class="tagline">Empowering healthier communities through voter access</div>
+        </div>
+        
+        <!-- Intro -->
+        <div class="intro">
+            Your team helped <span class="highlight">243 people</span> access voter registration and the polls this year. By integrating civic engagement into healthcare, you're strengthening both individual health outcomes and our democracy. <strong>Thank you for this vital partnership.</strong>
+        </div>
+        
+        <!-- 2025 Impact -->
+        <div class="section-header cyan">📊 2025 Impact</div>
+        
+        <div class="metrics">
+            <div class="metric-card primary">
+                <div class="label">People Reached</div>
+                <div class="value">243</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Badge Interactions</div>
+                <div class="value">8</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Online Referrals</div>
+                <div class="value">235</div>
+            </div>
+        </div>
+        
+        <div class="two-col">
+            <div class="card">
+                <div class="card-header">🗺️ Where You're Making an Impact</div>
+                <div class="card-body">
+                    <div class="list-row">
+                        <span class="name">Wisconsin</span>
+                        <span class="value">233</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name">Unknown</span>
+                        <span class="value">6</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name">Colorado</span>
+                        <span class="value">2</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name">Michigan</span>
+                        <span class="value">2</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header gold">🏆 Top Champions</div>
+                <div class="card-body">
+                    <div class="list-row">
+                        <span class="name"><span class="medal">🥇</span>Jessica W</span>
+                        <span class="value">5 connections</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name"><span class="medal">🥈</span>Katherine K</span>
+                        <span class="value">2 connections</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name"><span class="medal">🥉</span>Malia La S</span>
+                        <span class="value">2 connections</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name"><span class="medal">⭐</span>Rachelle C</span>
+                        <span class="value">2 connections</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- How Your Voters Compare -->
+        <div class="section-header green">📈 The Impact of Healthcare Voter Registration</div>
+        
+        <div class="comparison-intro">
+            <strong>You're part of something bigger.</strong> Across the entire Vot-ER community, people who register through healthcare settings vote at significantly higher rates than the general population. Here's how voters reached through Vot-ER partners performed in 2024:
+        </div>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Vot-ER Community</th>
+                    <th>State Average</th>
+                    <th>Difference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Wisconsin</td>
+                    <td>90.3%</td>
+                    <td>80.2%</td>
+                    <td class="positive">↑ +10.1%</td>
+                </tr>
+                <tr>
+                    <td>Colorado</td>
+                    <td>87.1%</td>
+                    <td>74.2%</td>
+                    <td class="positive">↑ +12.9%</td>
+                </tr>
+                <tr>
+                    <td>Missouri</td>
+                    <td>74.7%</td>
+                    <td>72.5%</td>
+                    <td class="positive">↑ +2.2%</td>
+                </tr>
+                <tr>
+                    <td>Michigan</td>
+                    <td>76.2%</td>
+                    <td>70.7%</td>
+                    <td class="positive">↑ +5.5%</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="padding: 14px 16px; font-size: 13px; color: #666; background: #f8f9fa;">
+                        <em>Data reflects all Vot-ER partner organizations in these states. Your work at Vivent Health contributed to these outcomes.</em>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        
+        <!-- All Time Impact -->
+        <div class="section-header red">🌟 Cumulative Impact (All Time)</div>
+        
+        <div class="metrics">
+            <div class="metric-card primary-red">
+                <div class="label">People Reached</div>
+                <div class="value">745</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Badge Interactions</div>
+                <div class="value">207</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Online Referrals</div>
+                <div class="value">538</div>
+            </div>
+        </div>
+        
+        <div class="two-col">
+            <div class="card">
+                <div class="card-header">🗺️ States Reached</div>
+                <div class="card-body">
+                    <div class="list-row">
+                        <span class="name">Wisconsin</span>
+                        <span class="value">592</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name">Colorado</span>
+                        <span class="value">85</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name">Missouri</span>
+                        <span class="value">50</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name">Unknown</span>
+                        <span class="value">6</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name">Michigan</span>
+                        <span class="value">2</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header gold">🏆 Champions of All Time</div>
+                <div class="card-body">
+                    <div class="list-row">
+                        <span class="name"><span class="medal">🥇</span>Jessica W</span>
+                        <span class="value">95 connections</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name"><span class="medal">🥈</span>Matt P</span>
+                        <span class="value">23 connections</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name"><span class="medal">🥉</span>Stephanie R</span>
+                        <span class="value">23 connections</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name"><span class="medal">⭐</span>Rebecca H</span>
+                        <span class="value">19 connections</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name"><span class="medal">⭐</span>Hannah K</span>
+                        <span class="value">12 connections</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name"><span class="medal">⭐</span>Kellie W</span>
+                        <span class="value">12 connections</span>
+                    </div>
+                    <div class="list-row">
+                        <span class="name"><span class="medal">⭐</span>Edward S</span>
+                        <span class="value">11 connections</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Thank you for making democracy more accessible through healthcare</p>
+            <div class="logo">
+                <span class="red">Vot</span><span class="white">-ER</span>
+            </div>
+            <div class="tagline">Every person you help register strengthens our communities</div>
+        </div>
+    </div>
+</body>
+</html>
